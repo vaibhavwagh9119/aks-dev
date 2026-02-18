@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tsp-app2
+  namespace: tsp-app2-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app2
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      nodeSelector:
+        app: app2
+      containers:
+      - name: nginx
+        image: nginx
