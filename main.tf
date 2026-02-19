@@ -27,6 +27,8 @@ module "network" {
 }
 
 module "keyvault" {
+  vnet_id = module.network.vnet_id
+  private_endpoint_subnet_id = module.network.private_endpoint_subnet_id
   source              = "./modules/keyvault"
   name                = "tspfcbbops${var.environment}kv"
   location            = var.location
